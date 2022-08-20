@@ -1,0 +1,10 @@
+#welcome-overview{
+  background: url('background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#welcome {
+  background-color: rgba(0,0,0,0.8);
+}
