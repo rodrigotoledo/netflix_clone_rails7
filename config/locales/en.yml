@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  email_address: "Email address"
+  welcome:
+    index:
+      first_title: 'Unlimited movies, TV shows, and more.'
+      second_title: 'Watch anywhere. Cancel anytime.'
+      thrid_text: 'Ready to watch? Enter your email to create or restart your membership.'
+      get_started: "Get Started"
