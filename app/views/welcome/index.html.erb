@@ -1,10 +1,25 @@
 <div id="welcome-overview">
-  <div class="h-screen flex" id="welcome">
-    <div class="flex justify-between container mx-auto">
-      <%= image_tag "logo.png", class: "h-20" %>
-      <div class="flex flex-row h-20 items-center">
-        <%= link_to "Sign Up", "#", class: "text-white p-2 h-10" %>
-        <%= link_to "Sign In", "#", class: "bg-red-500 text-white p-2 h-10 border border-red-500 rounded-sm" %>
+  <div class="h-screen" id="welcome">
+    <div class="ml-10 mr-10 mb-20">
+      <div class="flex justify-between mx-auto w-full">
+        <%= image_tag "logo.png", class: "h-20" %>
+        <div class="flex flex-row h-20 items-center">
+          <%= link_to "Sign Up", "#", class: "text-white p-2 h-10" %>
+          <%= link_to "Sign In", "#", class: "bg-red-600 text-white p-2 h-10 border border-red-600 rounded-sm" %>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center text-white ">
+      <div class="welcome-texts text-center">
+        <p class="text-8xl"> Unlimited movies, TV shows, and more.</p>
+        <p class="text-3xl mt-4 mb-4">Watch anywhere. Cancel anytime.</p>
+        <p class="text-lg">Ready to watch? Enter your email to create or restart your membership.</p>
+        <div>
+          <%= form_for(User.new, url: registration_path(User.new), autocomplete: "off") do |f| %>
+            <%= f.text_field :email, autocomplete: "off", class: "border text-5xl w-[20rem] border-0 outline-offset-0 outline-0" %>
+            <%= f.submit "Get Started >", class: "bg-red-600 text-white text-5xl p-5" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -8,3 +8,9 @@
 #welcome {
   background-color: rgba(0,0,0,0.8);
 }
+.first-title{
+  font-size: 5rem;
+}
+.welcome-texts{
+  width: 50rem
+}
