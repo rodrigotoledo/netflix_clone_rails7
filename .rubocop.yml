@@ -1,0 +1,13 @@
+  require:
+    - rubocop-rails
+    - rubocop-rspec
+
+  AllCops:
+    NewCops: enable
+
+  Rails:
+    Enabled: true
+  RSpec:
+    Enabled: true
+  RSpec/MultipleExpectations:
+    Enabled: false
