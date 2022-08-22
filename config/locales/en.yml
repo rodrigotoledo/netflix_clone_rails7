@@ -31,6 +31,7 @@
 
 en:
   email_address: "Email address"
+  downloading: 'Downloading'
   welcome:
     index:
       first_title: 'Unlimited movies, TV shows, and more.'
@@ -41,3 +42,6 @@ en:
       watch_tv: "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more."
       download_shows: 'Download your shows to watch offline.'
       save_favorites: 'Save your favorites easily and always have something to watch.'
+      stranger_things: 'Stranger Things'
+      watch_everywhere: 'Watch everywhere.'
+      stream_unlimited: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.'
