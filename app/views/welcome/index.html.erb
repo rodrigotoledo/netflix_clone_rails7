@@ -15,19 +15,7 @@
           <p class="text-6xl font-medium max-w-3xl"><%= t(".first_title") %></p>
           <p class="text-3xl mt-4 mb-4"><%= t(".second_title") %></p>
           <p class="text-lg"><%= t(".thrid_text") %></p>
-          <div class="flex justify-center mt-4">
-            <%= form_tag(steps_path, method: :post, autocomplete: "off") do %>
-              <div class="flex flex-row">
-                <div class="relative bg-white w-[30rem]">
-                  <%= email_field_tag :email_registration, "", required: :required, autocus: false, autocomplete: "off", class: "block px-2.5 pt-5 w-full text-sm bg-transparent appearance-none text-gray-700 border border-0 focus:outline-none focus:ring-0 peer", placeholder: " " %>
-                  <%= label_tag :email_registration, nil, class: "absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4" %>
-                </div>
-                <%= button_tag type: :submit, class: "bg-red-600 text-white self-center text-3xl flex flex-row flex-nowrap" do %>
-                  <%= (content_tag(:div, t(".get_started"), class: "m-2 ml-4 self-center flex-row flex-nowrap") + heroicon("chevron-right", options: { class: "h-10 mr-2 mt-2 mb-2" })).html_safe %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+          <%= render "get_started_form" %>
         </div>
       </div>
     </div>
@@ -35,7 +23,7 @@
   <div class="border-0 border-t-[10px] border-neutral-700 px-[8rem] flex">
     <div class="flex justify-center items-center">
       <div class='text-white mr-20'>
-        <p class="text-6xl max-w-3xl"><%= t(".enjoy_tv") %></p>
+        <p class="text-6xl"><%= t(".enjoy_tv") %></p>
         <p class="text-lg"><%= t(".watch_tv") %></p>
       </div>
       <div class="-pt-[150px]">
@@ -67,15 +55,15 @@
         </div>
       </div>
       <div class='text-white ml-20 content-center'>
-        <p class="text-5xl max-w-3xl"><%= t(".download_shows") %></p>
+        <p class="text-5xl"><%= t(".download_shows") %></p>
         <p class="text-lg"><%= t(".save_favorites") %></p>
       </div>
     </div>
   </div>
-  <div class="border-0 border-t-[10px] border-neutral-700 px-[8rem] flex mt-20 pb-20">
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[8rem] flex mt-20">
     <div class="flex justify-center items-center mt-10">
       <div class='text-white mr-20 mt-10'>
-        <p class="text-6xl max-w-3xl"><%= t(".watch_everywhere") %></p>
+        <p class="text-6xl"><%= t(".watch_everywhere") %></p>
         <p class="text-lg"><%= t(".stream_unlimited") %></p>
       </div>
       <div class="-pt-[150px]">
@@ -83,6 +71,80 @@
           <%= image_tag "device-pile.png", class: "z-10" %>
           <%= video_tag "video-tv-0819.m4v", class: "flex absolute w-[17rem] -mt-[3rem]", autoplay: true, playsinline: true, muted: true, loop: true %>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1">
+    <div class="flex justify-center items-center mt-10 mb-5">
+      <div class="-pt-[150px]">
+        <div class="flex justify-center items-center">
+          <%= image_tag "kids.png" %>
+        </div>
+      </div>
+      <div class='text-white ml-20 mt-10'>
+        <p class="text-6xl"><%= t(".create_profiles") %></p>
+        <p class="text-lg"><%= t(".send_adventures_kids") %></p>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1 text-white">
+    <div class="mt-10 mb-5 text-center justify-center items-center w-full">
+      <p class="text-6xl mb-10"><%= t(".frequently_asked_questions") %></p>
+      <% @questions.each do |question| %>
+      <div class="mx-[8rem] mb-[10px]">
+        <%= check_box_tag question_id(question), question_id(question), false, id: question_id(question), class: "peer hidden" %>
+        <label for="<%= question_id(question) %>" class="bg-[#303030] p-6 mb-[1px] flex justify-between">
+          <p class="text-3xl self-start"><%= question.title %></p>
+          <%= heroicon "check", options: { class: "h-10 self-end" } %>
+        </label>
+
+        <div class="bg-[#303030] w-full p-6 text-left hidden peer-checked:block  mb-1">
+          <div class="text-3xl"><%= question.content.html_safe %></div>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="mt-16">
+        <p class="text-lg"><%= t(".ready_to_watch") %></p>
+        <%= render "get_started_form" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 pb-10 text-gray-500">
+    <div class="flex justify-center items-center w-full">
+      <div class="w-[80%] mt-6">
+        <p class="mt-10 mb-6"><%= t(".questions") %></p>
+        <div class="grid grid-cols-4 gap-4 text-sm cursor-pointer">
+          <div>FAQ</div>
+          <div>Help Center</div>
+          <div>Account</div>
+          <div>Media Center</div>
+
+          <div>Investor Relations</div>
+          <div>Jobs</div>
+          <div>Redeem Gift Cards</div>
+          <div>Buy Gift Cards</div>
+
+          <div>Ways to Watch</div>
+          <div>Terms of Use</div>
+          <div>Privacy</div>
+          <div>Cookie Preferences</div>
+
+          <div>Corporate Information</div>
+          <div>Contact Us</div>
+          <div>Speed Test</div>
+          <div>Legal Notices</div>
+
+          <div>Only on Netflix</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 pb-10">
+    <div class="flex justify-center items-center w-full">
+      <div class="w-[80%] mt-6">
+        <%= select_tag :language_options, options_for_select(["English", "Portugues"], "English") %>
       </div>
     </div>
   </div>
