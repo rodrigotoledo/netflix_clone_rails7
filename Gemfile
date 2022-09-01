@@ -95,3 +95,7 @@ gem 'dotenv-rails'
 gem 'image_processing', '~> 1.2'
 
 gem "heroicon", "~> 0.4.0"
+
+group :production do
+  gem "pg"
+end
