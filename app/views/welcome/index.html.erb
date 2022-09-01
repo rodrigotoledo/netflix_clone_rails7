@@ -90,18 +90,19 @@
   <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1 text-white">
     <div class="mt-10 mb-5 text-center justify-center items-center w-full">
       <p class="text-6xl mb-10"><%= t(".frequently_asked_questions") %></p>
+
       <% @questions.each do |question| %>
-      <div class="mx-[8rem] mb-[10px]">
-        <%= check_box_tag question_id(question), question_id(question), false, id: question_id(question), class: "peer hidden" %>
-        <label for="<%= question_id(question) %>" class="bg-[#303030] p-6 mb-[1px] flex justify-between">
+      <details class="mx-[8rem] mb-[10px]">
+
+        <summary class="bg-[#303030] p-6 mb-[1px] flex justify-between">
           <p class="text-3xl self-start"><%= question.title %></p>
           <%= heroicon "check", options: { class: "h-10 self-end" } %>
-        </label>
+        </summary>
 
-        <div class="bg-[#303030] w-full p-6 text-left hidden peer-checked:block  mb-1">
-          <div class="text-3xl"><%= question.content.html_safe %></div>
+        <div class="bg-[#303030] w-full p-6 text-left mb-1 text-xl">
+          <%= question.content.html_safe %>
         </div>
-      </div>
+      </details>
       <% end %>
 
       <div class="mt-16">
