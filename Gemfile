@@ -93,3 +93,5 @@ end
 gem 'devise'
 gem 'dotenv-rails'
 gem 'image_processing', '~> 1.2'
+
+gem "heroicon", "~> 0.4.0"

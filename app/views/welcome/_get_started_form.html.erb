@@ -1,0 +1,13 @@
+<div class="flex justify-center mt-4">
+  <%= form_tag(steps_path, method: :post, autocomplete: "off") do %>
+    <div class="flex flex-row">
+      <div class="relative bg-white w-[30rem]">
+        <%= email_field_tag :email_address, "", required: :required, autocus: false, autocomplete: "off", class: "block px-2.5 pt-5 w-full text-sm bg-transparent appearance-none text-gray-700 border border-0 focus:outline-none focus:ring-0 peer", placeholder: " " %>
+        <%= label_tag :email_address, nil, class: "absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4" %>
+      </div>
+      <%= button_tag type: :submit, class: "bg-red-600 text-white self-center text-3xl flex flex-row flex-nowrap" do %>
+        <%= (content_tag(:div, t(".get_started"), class: "m-2 ml-4 self-center flex-row flex-nowrap") + heroicon("chevron-right", options: { class: "h-10 mr-2 mt-2 mb-2" })).html_safe %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

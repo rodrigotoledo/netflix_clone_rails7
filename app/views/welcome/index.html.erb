@@ -1,10 +1,151 @@
-<div id="welcome-overview">
-  <div class="h-screen flex" id="welcome">
-    <div class="flex justify-between container mx-auto">
-      <%= image_tag "logo.png", class: "h-20" %>
-      <div class="flex flex-row h-20 items-center">
-        <%= link_to "Sign Up", "#", class: "text-white p-2 h-10" %>
-        <%= link_to "Sign In", "#", class: "bg-red-500 text-white p-2 h-10 border border-red-500 rounded-sm" %>
+<div class="bg-black">
+  <div id="welcome-overview">
+    <div class="h-full pb-40" id="welcome">
+      <div class="ml-10 mr-10 mb-40">
+        <div class="flex justify-between mx-auto w-full">
+          <%= image_tag "logo.png", class: "h-20" %>
+          <div class="flex flex-row h-20 items-center">
+            <%= link_to "Sign Up", "#", class: "text-white p-2 h-10" %>
+            <%= link_to "Sign In", "#", class: "bg-red-600 text-white p-2 h-10 border border-red-600 rounded-sm" %>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center text-white ">
+        <div class="welcome-texts text-center">
+          <p class="text-6xl font-medium max-w-3xl"><%= t(".first_title") %></p>
+          <p class="text-3xl mt-4 mb-4"><%= t(".second_title") %></p>
+          <p class="text-lg"><%= t(".thrid_text") %></p>
+          <%= render "get_started_form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[8rem] flex">
+    <div class="flex justify-center items-center">
+      <div class='text-white mr-20'>
+        <p class="text-6xl"><%= t(".enjoy_tv") %></p>
+        <p class="text-lg"><%= t(".watch_tv") %></p>
+      </div>
+      <div class="-pt-[150px]">
+        <%= image_tag "tv.png" %>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1">
+    <div class="flex justify-center items-center">
+      <div class="flex relative items-center justify-center">
+        <div class="-pt-[150px]">
+          <%= image_tag "mobile.jpg" %>
+        </div>
+        <div class="bottom-[24px] absolute w-[20rem]">
+          <div class="rounded-lg border-2 border-gray-700 bg-black h-24 text-white">
+            <div class="flex justify-between p-2">
+              <%= image_tag "boxshot.png", class: "h-[4.5em]" %>
+              <div class="flex items-center">
+                <div>
+                  <p class="font-bold"><%= t(".stranger_things") %></p>
+                  <p class="text-sm downloading"><%= t("downloading") %>...</p>
+                </div>
+              </div>
+              <div class="flex justify-end">
+                <%= image_tag "download-icon.gif", class: "h-[50px] self-center" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='text-white ml-20 content-center'>
+        <p class="text-5xl"><%= t(".download_shows") %></p>
+        <p class="text-lg"><%= t(".save_favorites") %></p>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[8rem] flex mt-20">
+    <div class="flex justify-center items-center mt-10">
+      <div class='text-white mr-20 mt-10'>
+        <p class="text-6xl"><%= t(".watch_everywhere") %></p>
+        <p class="text-lg"><%= t(".stream_unlimited") %></p>
+      </div>
+      <div class="-pt-[150px]">
+        <div class="flex justify-center items-center">
+          <%= image_tag "device-pile.png", class: "z-10" %>
+          <%= video_tag "video-tv-0819.m4v", class: "flex absolute w-[17rem] -mt-[3rem]", autoplay: true, playsinline: true, muted: true, loop: true %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1">
+    <div class="flex justify-center items-center mt-10 mb-5">
+      <div class="-pt-[150px]">
+        <div class="flex justify-center items-center">
+          <%= image_tag "kids.png" %>
+        </div>
+      </div>
+      <div class='text-white ml-20 mt-10'>
+        <p class="text-6xl"><%= t(".create_profiles") %></p>
+        <p class="text-lg"><%= t(".send_adventures_kids") %></p>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 mb-1 text-white">
+    <div class="mt-10 mb-5 text-center justify-center items-center w-full">
+      <p class="text-6xl mb-10"><%= t(".frequently_asked_questions") %></p>
+
+      <% @questions.each do |question| %>
+      <details class="mx-[8rem] mb-[10px]">
+
+        <summary class="bg-[#303030] p-6 mb-[1px] flex justify-between">
+          <p class="text-3xl self-start"><%= question.title %></p>
+          <%= heroicon "check", options: { class: "h-10 self-end" } %>
+        </summary>
+
+        <div class="bg-[#303030] w-full p-6 text-left mb-1 text-xl">
+          <%= question.content.html_safe %>
+        </div>
+      </details>
+      <% end %>
+
+      <div class="mt-16">
+        <p class="text-lg"><%= t(".ready_to_watch") %></p>
+        <%= render "get_started_form" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 pb-10 text-gray-500">
+    <div class="flex justify-center items-center w-full">
+      <div class="w-[80%] mt-6">
+        <p class="mt-10 mb-6"><%= t(".questions") %></p>
+        <div class="grid grid-cols-4 gap-4 text-sm cursor-pointer">
+          <div>FAQ</div>
+          <div>Help Center</div>
+          <div>Account</div>
+          <div>Media Center</div>
+
+          <div>Investor Relations</div>
+          <div>Jobs</div>
+          <div>Redeem Gift Cards</div>
+          <div>Buy Gift Cards</div>
+
+          <div>Ways to Watch</div>
+          <div>Terms of Use</div>
+          <div>Privacy</div>
+          <div>Cookie Preferences</div>
+
+          <div>Corporate Information</div>
+          <div>Contact Us</div>
+          <div>Speed Test</div>
+          <div>Legal Notices</div>
+
+          <div>Only on Netflix</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-0 border-t-[10px] border-neutral-700 px-[6rem] flex mt-20 pb-10">
+    <div class="flex justify-center items-center w-full">
+      <div class="w-[80%] mt-6">
+        <%= select_tag :language_options, options_for_select(["English", "Portugues"], "English") %>
       </div>
     </div>
   </div>

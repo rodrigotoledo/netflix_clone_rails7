@@ -30,4 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  email_address: "Email address"
+  downloading: 'Downloading'
+  welcome:
+    index:
+      first_title: 'Unlimited movies, TV shows, and more.'
+      second_title: 'Watch anywhere. Cancel anytime.'
+      thrid_text: 'Ready to watch? Enter your email to create or restart your membership.'
+      get_started: "Get Started"
+      enjoy_tv: "Enjoy on your TV."
+      watch_tv: "Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more."
+      download_shows: 'Download your shows to watch offline.'
+      save_favorites: 'Save your favorites easily and always have something to watch.'
+      stranger_things: 'Stranger Things'
+      watch_everywhere: 'Watch everywhere.'
+      stream_unlimited: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.'
+      create_profiles: 'Create profiles for kids.'
+      send_adventures_kids: 'Send kids on adventures with their favorite characters in a space made just for them—free with your membership.'
+      ready_to_watch: 'Ready to watch? Enter your email to create or restart your membership.'
+      frequently_asked_questions: 'Frequently Asked Questions'
+      questions: "Questions? Call 0800 591 8943"
