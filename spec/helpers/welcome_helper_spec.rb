@@ -13,5 +13,12 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe WelcomeHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'question uniq id' do
+    let(:question) { create(:question) }
+    let(:question_id) { "question_#{question.id}" }
+
+    it 'generate uniq id for question' do
+      expect(helper.question_id(question)).to eq(question_id)
+    end
+  end
 end

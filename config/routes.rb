@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :steps, only: [:index, :create, :update]
+  resources :steps, only: %i[index create update]
   resources :movie_categories
   resources :categories
   resources :movie_users
